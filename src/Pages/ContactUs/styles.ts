@@ -20,6 +20,20 @@ export const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
+    card: {
+      height: '200px',
+      width: '200px',
+      marginBottom: '10px',
+      display: 'flex',
+      flexDirection: 'column',
+      borderRadius: '20%',
+    },
+    cardMedia: {
+
+    },
+    cardContent: {
+      flexGrow: 1,
+    },
   })
 );
 
