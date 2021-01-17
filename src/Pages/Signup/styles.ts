@@ -29,8 +29,16 @@ export const useStyles = makeStyles((theme: Theme) =>
       width: '40vw',
       marginBottom: '20px',
     },
+    TextMobile: {
+      width: '80vw',
+      marginBottom: '20px',
+    },
     Select: {
       width: '40vw',
+      marginBottom: '20px',
+    },
+    SelectMobile: {
+      width: '80vw',
       marginBottom: '20px',
     },
   })

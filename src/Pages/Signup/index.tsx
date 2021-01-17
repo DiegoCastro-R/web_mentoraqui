@@ -51,7 +51,91 @@ const Singup: React.FC = () => {
           style={{ background: '#2e2e2e', minHeight: '90vh' }}
           alignItems="center"
         >
-          {isMobile && <Grid container direction="column" justify="space-between" alignItems="center" />}
+          {isMobile && (
+            <Card className={classes.rootCard} variant="outlined">
+              <CardContent>
+                <form className={classes.root} onSubmit={formik.handleSubmit} autoComplete="off">
+                  <Grid container direction="column" justify="space-between" alignItems="center">
+                    <TextField
+                      className={classes.TextMobile}
+                      onChange={formik.handleChange}
+                      value={formik.values.fullName}
+                      id="fullName"
+                      label="Nome Completo"
+                      variant="outlined"
+                    />
+                    <TextField
+                      className={classes.TextMobile}
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      id="email"
+                      label="Email"
+                      variant="outlined"
+                    />
+                    <TextField
+                      className={classes.TextMobile}
+                      onChange={formik.handleChange}
+                      value={formik.values.phone}
+                      id="phone"
+                      label="Telefone"
+                      variant="outlined"
+                    />
+                    <Select
+                      className={classes.SelectMobile}
+                      label="Jovem ou Mentor ?"
+                      id="userCategory"
+                      name="userCategory"
+                      value={formik.values.userCategory}
+                      onChange={formik.handleChange}
+                      input={<BootstrapInput />}
+                    >
+                      <MenuItem />
+                      <MenuItem onChange={formik.handleChange} value={1}>
+                        Jovem Talento
+                      </MenuItem>
+                      <MenuItem onChange={formik.handleChange} value={2}>
+                        Mentor(a)
+                      </MenuItem>
+                    </Select>
+                    <TextField
+                      className={classes.TextMobile}
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
+                      id="password"
+                      type="password"
+                      label="Senha"
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid direction="column" justify="center" alignItems="center">
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      style={{
+                        background: '#1D6C6C',
+                        color: '#ffff',
+                        width: '200px',
+                        height: '50px',
+                        marginLeft: '50px',
+                      }}
+                    >
+                      Cadastrar
+                    </Button>
+
+                    <Button
+                      component={RouterLink}
+                      to="/"
+                      color="secondary"
+                      variant="contained"
+                      style={{ color: '#ffff', width: '200px', height: '50px', margin: '10px', marginLeft: '50px' }}
+                    >
+                      Cancelar
+                    </Button>
+                  </Grid>
+                </form>
+              </CardContent>
+            </Card>
+          )}
           {!isMobile && (
             <Card className={classes.rootCard} variant="outlined">
               <CardContent>
@@ -83,16 +167,12 @@ const Singup: React.FC = () => {
                     />
                     <Select
                       className={classes.Select}
-                      labelId="demo-simple-select-filled-label"
                       id="userCategory"
                       name="userCategory"
                       value={formik.values.userCategory}
                       onChange={formik.handleChange}
                       input={<BootstrapInput />}
                     >
-                      <MenuItem value="">
-                        <em> </em>
-                      </MenuItem>
                       <MenuItem onChange={formik.handleChange} value={1}>
                         Jovem Talento
                       </MenuItem>

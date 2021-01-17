@@ -26,14 +26,20 @@ const About: React.FC = () => {
         >
           {isMobile && (
             <Grid container direction="column" justify="space-between" alignItems="center">
-              <Typography variant="h4" align="center" style={{ color: 'white', marginTop: '-60px' }}>
-                O site que conecta Mentores e
-              </Typography>
-              <Typography variant="h4" style={{ color: 'white', fontSize: '30px' }}>
-                Jovens Talentos!
-              </Typography>
-              <Typography variant="h6" style={{ color: 'white', marginBottom: '20px' }}>
-                Faça parte desta rede!
+              <img src={Logo} style={{ width: '100vw' }} alt="logo" />
+              <Typography variant="h6" display="inline" style={{ color: 'white', padding: '20px' }}>
+                Mentoraqui nasceu com a missão de conexão com propósito.
+                <br /> É conectar jovens talentos com mentores
+                <br /> que possuem experiência em diferentes mercados de trabalho,
+                <br /> vivências e histórias, com o objetivo <br />
+                de criarmos caminhos diferentes para transformação!
+                <br />
+                Após as mentorias indicamos instituições de ensino conveniadas,
+                <br /> para que os jovens possam se qualificar na área desejada, <br />
+                e/ou buscar emprego nas áreas que mais demandam mão de obra. <br />A plataforma tem como público-alvo
+                jovens
+                <br /> que estão em busca do primeiro emprego, <br />
+                desenvolvimento de carreira e/ou iniciar o ensino superior / técnico.
               </Typography>
             </Grid>
           )}

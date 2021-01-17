@@ -1,4 +1,5 @@
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, withStyles } from '@material-ui/core/styles';
+import MuiMenuItem from '@material-ui/core/MenuItem';
 
 export const useStyles = makeStyles((theme) =>
   createStyles({
@@ -9,6 +10,10 @@ export const useStyles = makeStyles((theme) =>
     title: {
       fontSize: '16px',
       margin: '30px',
+      textAlign: 'center',
+      textDecoration: 'none',
+      textJustify: 'inherit',
+      color: '#1D6C6C',
     },
     titleWeb: {
       fontSize: '16px',
@@ -16,3 +21,9 @@ export const useStyles = makeStyles((theme) =>
     },
   })
 );
+
+export const MenuItem = withStyles({
+  root: {
+    justifyContent: 'center',
+  },
+})(MuiMenuItem);
