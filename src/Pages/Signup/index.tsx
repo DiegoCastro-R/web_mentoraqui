@@ -3,17 +3,35 @@ import { Button, Grid, TextField, Card, CardContent, Select, MenuItem } from '@m
 import { Link as RouterLink } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { isMobile } from 'react-device-detect';
+import { useFormik } from 'formik';
 import Navbar from '../../Components/Navbar';
 import NavBarMobile from '../../Components/NavbarMobile';
 import Footer from '../../Components/Footer';
 import { useStyles, BootstrapInput } from './styles';
+import api from '../../services/api';
 
 const Singup: React.FC = () => {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setAge(event.target.value as string);
-  };
+
+  interface formValues {
+    fullName: string;
+    email: string;
+    phone: string;
+    userCategory: string;
+    password: string;
+  }
+  const formik = useFormik({
+    initialValues: {
+      fullName: '',
+      email: '',
+      phone: '',
+      userCategory: '',
+      password: '',
+    },
+    onSubmit: (values: formValues) => {
+      api.post('/users', values);
+    },
+  });
   return (
     <>
       <Grid className={classes.mainGrid}>
@@ -31,27 +49,55 @@ const Singup: React.FC = () => {
           {!isMobile && (
             <Card className={classes.rootCard} variant="outlined">
               <CardContent>
-                <form className={classes.root} noValidate autoComplete="off">
+                <form className={classes.root} onSubmit={formik.handleSubmit} autoComplete="off">
                   <Grid container direction="column" justify="space-between" alignItems="center">
-                    <TextField className={classes.Text} id="fullName" label="Nome Completo" variant="outlined" />
-                    <TextField className={classes.Text} id="email" label="Email" variant="outlined" />
-                    <TextField className={classes.Text} id="telephone" label="Telefone" variant="outlined" />
+                    <TextField
+                      className={classes.Text}
+                      onChange={formik.handleChange}
+                      value={formik.values.fullName}
+                      id="fullName"
+                      label="Nome Completo"
+                      variant="outlined"
+                    />
+                    <TextField
+                      className={classes.Text}
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      id="email"
+                      label="Email"
+                      variant="outlined"
+                    />
+                    <TextField
+                      className={classes.Text}
+                      onChange={formik.handleChange}
+                      value={formik.values.phone}
+                      id="phone"
+                      label="Telefone"
+                      variant="outlined"
+                    />
                     <Select
                       className={classes.Select}
                       labelId="demo-simple-select-filled-label"
-                      id="demo-simple-select-filled"
-                      value={age}
-                      onChange={handleChange}
+                      id="userCategory"
+                      name="userCategory"
+                      value={formik.values.userCategory}
+                      onChange={formik.handleChange}
                       input={<BootstrapInput />}
                     >
                       <MenuItem value="">
                         <em> </em>
                       </MenuItem>
-                      <MenuItem value={1}>Jovem Talento</MenuItem>
-                      <MenuItem value={2}>Mentor(a)</MenuItem>
+                      <MenuItem onChange={formik.handleChange} value={1}>
+                        Jovem Talento
+                      </MenuItem>
+                      <MenuItem onChange={formik.handleChange} value={2}>
+                        Mentor(a)
+                      </MenuItem>
                     </Select>
                     <TextField
                       className={classes.Text}
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
                       id="password"
                       type="password"
                       label="Senha"
@@ -60,6 +106,7 @@ const Singup: React.FC = () => {
                   </Grid>
                   <Grid direction="row" justify="center" alignItems="center">
                     <Button
+                      type="submit"
                       variant="contained"
                       style={{
                         background: '#1D6C6C',
