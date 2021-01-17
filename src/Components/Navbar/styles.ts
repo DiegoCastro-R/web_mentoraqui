@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(() =>
   createStyles({
@@ -9,6 +9,8 @@ export const useStyles = makeStyles(() =>
     title: {
       fontSize: '16px',
       margin: '30px',
+      color: '#fff',
+      textDecoration: 'none',
     },
   })
 );

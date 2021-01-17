@@ -1,38 +1,69 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Typography } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { isMobile } from 'react-device-detect';
 import Navbar from '../../Components/Navbar';
+import NavBarMobile from '../../Components/NavbarMobile';
 import Footer from '../../Components/Footer';
-
+import { useStyles } from './styles';
 import Logo from '../../assets/logoUPsf.png';
 
 const Home: React.FC = () => {
+  const classes = useStyles();
   return (
-    <div style={{ width: '100%', height: '100%', margin: 0, padding: 0, flex: 1, background: '#000000' }}>
-      <Navbar />
-      <Grid
-        container
-        xs
-        direction="column"
-        justify="space-between"
-        alignItems="center"
-        style={{ marginBottom: '16px' }}
-      >
-        <img src={Logo} alt="logo" />
-        <Typography variant="h5" display="block" style={{ color: 'white', marginTop: '-60px' }}>
-          O site que conecta Mentores e
-        </Typography>
-        <Typography variant="h4" paragraph display="block" style={{ color: 'white' }}>
-          Jovens Talentos!
-        </Typography>
-        <Typography variant="h6" paragraph display="block" style={{ color: 'white' }}>
-          Faça parte desta rede!
-        </Typography>
-        <Button variant="contained" style={{ background: '#1D6C6C', color: '#ffff' }}>
-          Cadastre-se
-        </Button>
+    <>
+      <Grid className={classes.mainGrid}>
+        <CssBaseline />
+        {!isMobile ? <Navbar /> : <NavBarMobile />}
+
+        <Grid
+          container
+          direction="column"
+          justify="space-between"
+          style={{ background: '#2e2e2e', minHeight: '90vh' }}
+          alignItems="center"
+        >
+          <img src={Logo} alt="logo" />
+          {isMobile && (
+            <Grid container direction="column" justify="space-between" alignItems="center">
+              <Typography variant="h4" align="center" style={{ color: 'white', marginTop: '-60px' }}>
+                O site que conecta Mentores e
+              </Typography>
+              <Typography variant="h4" style={{ color: 'white', fontSize: '30px' }}>
+                Jovens Talentos!
+              </Typography>
+              <Typography variant="h6" style={{ color: 'white', marginBottom: '20px' }}>
+                Faça parte desta rede!
+              </Typography>
+            </Grid>
+          )}
+          {!isMobile && (
+            <Grid container direction="column" justify="space-between" alignItems="center">
+              <Typography variant="h3" display="block" style={{ color: 'white', marginTop: '-60px' }}>
+                O site que conecta Mentores e
+              </Typography>
+              <Typography variant="h3" style={{ color: 'white' }}>
+                Jovens Talentos!
+              </Typography>
+              <Typography variant="h5" style={{ color: 'white', marginBottom: '20px' }}>
+                Faça parte desta rede!
+              </Typography>
+            </Grid>
+          )}
+
+          <Button
+            component={RouterLink}
+            to="/signup"
+            variant="contained"
+            style={{ background: '#1D6C6C', color: '#ffff', width: '300px', height: '60px' }}
+          >
+            Cadastre-se
+          </Button>
+          <Footer />
+        </Grid>
       </Grid>
-      <Footer />
-    </div>
+    </>
   );
 };
 
