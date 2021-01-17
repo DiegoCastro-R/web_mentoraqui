@@ -8,6 +8,7 @@ export const useStyles = makeStyles(() =>
   createStyles({
     root: {
       backgroundImage: `url(${BGImage})`,
+      maxWidth: '100vw',
       marginBottom: '0',
       marginTop: '27px',
     },

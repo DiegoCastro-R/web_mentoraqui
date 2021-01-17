@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     mainGrid: {
       width: '100vw',
-      height: '100vh',
+      flex: 1,
       spacing: 0,
       justify: 'space-around',
     },

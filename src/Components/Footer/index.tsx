@@ -8,18 +8,18 @@ import { useStyles } from './styles';
 const Footer: React.FC = () => {
   const classes = useStyles();
   return (
-    <Grid className={classes.root} direction="row" justify="space-between" container alignItems="center">
-      <Grid style={{ marginLeft: '180px' }} xs justify="space-between" direction="row" container alignItems="center">
+    <Grid className={classes.root} direction="row" justify="center" container alignItems="baseline">
+      <Grid item sm={2}>
         <ul>
           <img src={image2} style={{ width: '200px' }} alt="1" />
         </ul>
       </Grid>
-      <Grid xs justify="space-between" direction="row" container alignItems="center">
+      <Grid item sm={2}>
         <ul>
           <img src={image1} style={{ width: '200px' }} alt="1" />
         </ul>
       </Grid>
-      <Grid xs justify="space-between" direction="row" container alignItems="center">
+      <Grid item sm={2}>
         <ul>
           <img src={image3} style={{ width: '200px' }} alt="1" />
         </ul>
