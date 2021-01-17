@@ -4,15 +4,19 @@ import { Link as RouterLink } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { isMobile } from 'react-device-detect';
 import { useFormik } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
 import Navbar from '../../Components/Navbar';
 import NavBarMobile from '../../Components/NavbarMobile';
 import Footer from '../../Components/Footer';
 import { useStyles, BootstrapInput } from './styles';
 import api from '../../services/api';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const Singup: React.FC = () => {
   const classes = useStyles();
-
+  const notify = (message: string) => {
+    toast(message);
+  };
   interface formValues {
     fullName: string;
     email: string;
@@ -29,7 +33,9 @@ const Singup: React.FC = () => {
       password: '',
     },
     onSubmit: (values: formValues) => {
-      api.post('/users', values);
+      api.post('/users', values).then(() => {
+        notify('Success');
+      });
     },
   });
   return (
@@ -137,6 +143,7 @@ const Singup: React.FC = () => {
 
           <Footer />
         </Grid>
+        <ToastContainer />
       </Grid>
     </>
   );

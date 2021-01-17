@@ -9,6 +9,8 @@ export const useStyles = makeStyles(() =>
     title: {
       fontSize: '16px',
       margin: '30px',
+      color: '#fff',
+      textDecoration: 'none',
     },
   })
 );
