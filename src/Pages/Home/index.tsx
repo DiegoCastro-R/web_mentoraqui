@@ -7,15 +7,15 @@ import Logo from '../../assets/logoUPsf.png';
 
 const Home: React.FC = () => {
   return (
-    <div style={{ width: '100%', height: '100%', margin: 0, padding: 0, flex: 1, background: '#000000' }}>
+    <Grid xl direction="column" justify="space-between" alignItems="center">
       <Navbar />
       <Grid
         container
-        xs
+        xl
         direction="column"
         justify="space-between"
+        style={{ background: '#2e2e2e' }}
         alignItems="center"
-        style={{ marginBottom: '16px' }}
       >
         <img src={Logo} alt="logo" />
         <Typography variant="h5" display="block" style={{ color: 'white', marginTop: '-60px' }}>
@@ -30,9 +30,9 @@ const Home: React.FC = () => {
         <Button variant="contained" style={{ background: '#1D6C6C', color: '#ffff' }}>
           Cadastre-se
         </Button>
+        <Footer />
       </Grid>
-      <Footer />
-    </div>
+    </Grid>
   );
 };
 

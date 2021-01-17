@@ -6,7 +6,13 @@ import { LinkItem } from './styles';
 const Footer: React.FC = () => {
   const baseUrl = 'http://p2ptrading.com.br/';
   return (
-    <Grid style={{ background: 'grey' }} direction="row" justify="space-between" container alignItems="center">
+    <Grid
+      style={{ background: 'grey', maringBottom: 0, marginTop: '20px' }}
+      direction="row"
+      justify="space-between"
+      container
+      alignItems="center"
+    >
       <Grid style={{ marginLeft: '230px' }} xs justify="space-between" direction="row" container alignItems="center">
         <ul>
           <ListItem>
