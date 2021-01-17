@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Typography } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { isMobile } from 'react-device-detect';
@@ -51,7 +52,12 @@ const Home: React.FC = () => {
             </Grid>
           )}
 
-          <Button variant="contained" style={{ background: '#1D6C6C', color: '#ffff', width: '300px', height: '60px' }}>
+          <Button
+            component={RouterLink}
+            to="/signup"
+            variant="contained"
+            style={{ background: '#1D6C6C', color: '#ffff', width: '300px', height: '60px' }}
+          >
             Cadastre-se
           </Button>
           <Footer />
