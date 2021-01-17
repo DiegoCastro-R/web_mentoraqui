@@ -1,55 +1,27 @@
 import React from 'react';
-import { Grid, ListItem } from '@material-ui/core';
-
-import { LinkItem } from './styles';
+import { Grid } from '@material-ui/core';
+import image1 from '../../assets/1.png';
+import image2 from '../../assets/2.png';
+import image3 from '../../assets/3.png';
+import { useStyles } from './styles';
 
 const Footer: React.FC = () => {
-  const baseUrl = 'http://p2ptrading.com.br/';
+  const classes = useStyles();
   return (
-    <Grid
-      style={{ background: 'grey', marginBottom: '0', marginTop: '27px' }}
-      direction="row"
-      justify="space-between"
-      container
-      alignItems="center"
-    >
-      <Grid style={{ marginLeft: '230px' }} xs justify="space-between" direction="row" container alignItems="center">
+    <Grid className={classes.root} direction="row" justify="space-between" container alignItems="center">
+      <Grid style={{ marginLeft: '180px' }} xs justify="space-between" direction="row" container alignItems="center">
         <ul>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>Home</LinkItem>
-          </ListItem>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>Home</LinkItem>
-          </ListItem>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>Home</LinkItem>
-          </ListItem>
+          <img src={image2} style={{ width: '200px' }} alt="1" />
         </ul>
       </Grid>
       <Grid xs justify="space-between" direction="row" container alignItems="center">
         <ul>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>Home</LinkItem>
-          </ListItem>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>HOME</LinkItem>
-          </ListItem>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>FAQ</LinkItem>
-          </ListItem>
+          <img src={image1} style={{ width: '200px' }} alt="1" />
         </ul>
       </Grid>
       <Grid xs justify="space-between" direction="row" container alignItems="center">
         <ul>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>HOME</LinkItem>
-          </ListItem>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>HOME</LinkItem>
-          </ListItem>
-          <ListItem>
-            <LinkItem href={`${baseUrl}Home`}>FAQ</LinkItem>
-          </ListItem>
+          <img src={image3} style={{ width: '200px' }} alt="1" />
         </ul>
       </Grid>
     </Grid>

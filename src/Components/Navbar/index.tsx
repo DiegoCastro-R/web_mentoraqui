@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="static" elevation={0} style={{ background: 'grey' }}>
+      <AppBar position="static" elevation={0} style={{ background: '#2e2e2e' }}>
         <Toolbar>
           <img src={Logo} style={{ width: '80px', height: 'auto' }} alt="logo" />
           <Typography variant="h6" className={classes.title}>
