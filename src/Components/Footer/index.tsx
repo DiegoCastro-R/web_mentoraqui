@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   const baseUrl = 'http://p2ptrading.com.br/';
   return (
     <Grid
-      style={{ background: 'grey', marginBottom: '0', marginTop: '20px' }}
+      style={{ background: 'grey', marginBottom: '0', marginTop: '27px' }}
       direction="row"
       justify="space-between"
       container

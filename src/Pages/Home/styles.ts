@@ -3,6 +3,12 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    mainGrid: {
+      width: '100vw',
+      height: '100vh',
+      spacing: 0,
+      justify: 'space-around',
+    },
     root: {
       flexGrow: 1,
       margin: 0,

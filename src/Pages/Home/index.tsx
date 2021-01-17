@@ -1,13 +1,16 @@
 import React from 'react';
 import { Button, Grid, Typography } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Navbar from '../../Components/Navbar';
 import Footer from '../../Components/Footer';
-
+import { useStyles } from './styles';
 import Logo from '../../assets/logoUPsf.png';
 
 const Home: React.FC = () => {
+  const classes = useStyles();
   return (
-    <Grid xl direction="column" justify="space-between" alignItems="center">
+    <Grid className={classes.mainGrid}>
+      <CssBaseline />
       <Navbar />
       <Grid
         container
